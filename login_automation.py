@@ -1,4 +1,4 @@
-from turtle import isvisible
+# from turtle import isvisible
 from appium import webdriver
 from appium.webdriver.webdriver import AppiumOptions
 from appium.webdriver.common.appiumby import AppiumBy
