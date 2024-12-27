@@ -1,1 +1,1 @@
-web: uvicorn main:app --host 0.0.0.0 --port 6000
+web: bash setup.sh && pip install -r requirements.txt && uvicorn appium_server:app --host 0.0.0.0 --port 8000
