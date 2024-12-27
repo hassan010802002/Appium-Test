@@ -18,7 +18,7 @@ npm list -g appium || npm install -g appium@2.12.1
 export PATH=$PATH:$(npm bin -g)
 
 # Verify appium installation
-which appium || { echo "Appium installation failed!"; exit 1; }
+appium --version 
 
 # Install necessary Appium drivers
 appium driver install uiautomator2@3.8.1
