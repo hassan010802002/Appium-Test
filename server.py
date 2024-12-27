@@ -6,6 +6,8 @@ from pydantic import BaseModel
 import logging
 from fastapi.middleware.cors import CORSMiddleware
 from appium import webdriver
+import sys
+sys.modules.pop('_tkinter', None)  # Remove _tkinter if it exists
 
 app = FastAPI()
 
