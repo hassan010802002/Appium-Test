@@ -89,4 +89,4 @@ async def click_button(request: AutomationRequest , background_tasks: Background
 # Run the app in ASGI mode (use uvicorn for production)
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=6000)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
