@@ -2,9 +2,6 @@
 # Install Node.js and Appium globally
 echo "Running setup.sh..."
 
-# Install dependencies (remove npm update as it's redundant with npm install)
-npm install --omit=dev
-
 # Install Appium globally if it's not already installed
 npm list -g appium || npm install -g appium@2.12.1
 
