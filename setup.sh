@@ -4,6 +4,8 @@ echo "Running setup.sh..."
 # Step 1: Install Node.js (includes npm)
 echo "Installing Node.js..."
 curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+echo "Checking GLibc library version"
+ldd --version
 apt-get install -y nodejs || { echo "Node.js installation failed!"; exit 1; }
 
 # Verify Node.js and npm installation
