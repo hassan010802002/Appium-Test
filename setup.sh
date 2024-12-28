@@ -33,8 +33,16 @@ npm_bin=$(npm bin -g 2>/dev/null || true)
 if ! command -v appium &>/dev/null && [[ -n "$npm_bin" ]]; then
     npm install -g appium@2.12.1 || { echo "Failed to install Appium"; exit 1; }
     export PATH=$PATH:$npm_bin
+    echo "Appium binary path: $npm_bin"
 else
-    echo "Appium is already installed. Skipping installation."
+    echo "Appium is already installed or npm global binary path is unavailable."
+fi
+
+# Ensure Appium is in PATH
+if ! command -v appium &>/dev/null; then
+    echo "Appium command not found even after installation. Adding npm global binaries to PATH."
+    export PATH=$(npm bin -g):$PATH
+    echo "Updated PATH: $PATH"
 fi
 
 # Step 4: Install Appium drivers
@@ -42,5 +50,3 @@ echo "Installing Appium drivers..."
 appium driver install uiautomator2@3.8.1 || { echo "Failed to install uiautomator2 driver"; exit 1; }
 appium driver install flutter@2.9.2 || { echo "Failed to install flutter driver"; exit 1; }
 appium driver install chromium@1.4.4 || { echo "Failed to install chromium driver"; exit 1; }
-
-echo "Setup completed successfully."
